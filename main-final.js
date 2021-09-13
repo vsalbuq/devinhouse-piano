@@ -1,15 +1,15 @@
 // get all keys
-const keys = document.querySelectorAll(".key")
+var keys = document.querySelectorAll(".key")
 
 function playNote(event) {
   
-  let audioKeyCode = getKeyCode(event);
+  var audioKeyCode = getKeyCode(event);
 
   // typed or pressed key
-  const key = document.querySelector(`.key[data-key="${audioKeyCode}"]`)
+  var key = document.querySelector(`.key[data-key="${audioKeyCode}"]`)
 
   // if key exists
-  const cantFoundAnyKey = !key
+  var cantFoundAnyKey = !key
 
   if(cantFoundAnyKey) {
     return;
@@ -24,9 +24,9 @@ function addPlayingClass(key) {
 }
 
 function getKeyCode(event) {
-  let keyCode;
+  var keyCode;
 
-  const isKeyboard = event.type === "keydown"
+  var isKeyboard = event.type === "keydown"
   if(isKeyboard) {
     keyCode = event.keyCode
   } else {
@@ -37,7 +37,7 @@ function getKeyCode(event) {
 }
 
 function playAudio(audioKeyCode) {
-  const audio = document.querySelector(`audio[data-key="${audioKeyCode}"]`)
+  var audio = document.querySelector(`audio[data-key="${audioKeyCode}"]`)
   audio.currentTime = 0;
   audio.play()
 }
